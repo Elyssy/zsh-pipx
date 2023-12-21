@@ -16,6 +16,13 @@ if [[ ${zsh_loaded_plugins[-1]} != */zsh-pipx && -z ${fpath[(r)${0:h}]} ]] {
     fpath+=( "${0:h}" )
 }
 
+# Created by `pipx` on 2023-12-21 19:27:05
+# Check if the directory is already in PATH
+if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
+    # If not in PATH, add it
+    export PATH="$PATH:$HOME/.local/bin"
+fi
+
 # Standard hash for plugins, to not pollute the namespace
 typeset -gA Plugins
 Plugins[ZSH_PIPX_DIR]="${0:h}"
